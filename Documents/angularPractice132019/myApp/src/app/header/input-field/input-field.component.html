@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-12">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+          <div class="row">
+              <label for="name" >Name</label>
+              <input class="form-control" type="text"
+              ngModel name="name">
+          </div>
+          <div class="row" >
+              <label for="value" >Value</label>
+              <input class="form-control" type="text"
+              ngModel name="value">
+          </div>
+            
+          <div class="row">
+              <button class="btn btn-primary" >Test Button</button>
+          </div>
+    
+        </form>
+  </div>
+    
+  <div class="col-sm-12">
+      <h3>Input values </h3> 
+      <li *ngFor="let anInput of inputLists">
+        {{anInput}}
+      </li>
+  </div>
+   
+    
+</div>
