@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.tadtab",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.5.1",
+    "applicationType": "microservice",
+    "baseName": "tadtab",
+    "packageName": "com.tadtab",
+    "packageFolder": "com/tadtab",
+    "serverPort": "8283",
+    "authenticationType": "jwt",
+    "cacheProvider": "redis",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NDYwZTcwMzg3ZTY1YjE0ZWE5NzYzZjIxYTA5ODU3YzYwYWVmMzg2NjI5MThmOGUxNjkxZmU1MmRjNGE2NzJmYTkxYzM4ZTEzNTRhMTRiMDhiZWZmOTU0MTRmM2NlMzE5NjcwNzQ0NDk0NTA0Mjk5NzVjYzEzNjNhNTIwMTU3ZGE=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
