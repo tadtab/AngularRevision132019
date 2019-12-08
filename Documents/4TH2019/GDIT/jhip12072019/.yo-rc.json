@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.tadtab"
+    },
+    "jhipsterVersion": "6.5.1",
+    "applicationType": "gateway",
+    "baseName": "jhip12072019",
+    "packageName": "com.tadtab",
+    "packageFolder": "com/tadtab",
+    "serverPort": "8283",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWU5NThjMmZkZTBmN2RmMDFiNWI0YzUxNTAzZDBjNTM4NmQ3YWRiNmJjMGFjYmJlMWUxYTc2OTUxMWQ4ZGZkOThlZWExMzhlZTlhMzVhNTc1YzAxZjYwYjQwY2IwM2E0ZDE0OTVlMzc2NjkxZTIxMTIxMTI5MGU2Nzc2NTZiMzI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
