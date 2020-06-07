@@ -19,13 +19,6 @@ logging:
     io.github.jhipster: DEBUG
     com.tadtab: DEBUG
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
-
 spring:
   profiles:
     active: dev
@@ -60,7 +53,7 @@ spring:
     properties:
       hibernate.id.new_generator_mappings: true
       hibernate.connection.provider_disables_autocommit: true
-      hibernate.cache.use_second_level_cache: true
+      hibernate.cache.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: false
   liquibase:
@@ -95,23 +88,26 @@ server:
 # ===================================================================
 
 jhipster:
-  cache: # Cache configuration
-    redis: # Redis configuration
-      expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
-  # CORS is disabled by default on microservices, as you should access them through a gateway.
-  # If you want to enable it, please uncomment the configuration below.
-  # cors:
-  #     allowed-origins: "*"
-  #     allowed-methods: "*"
-  #     allowed-headers: "*"
-  #     exposed-headers: "Authorization,Link,X-Total-Count"
-  #     allow-credentials: true
-  #     max-age: 1800
+  gateway:
+    rate-limiting:
+      enabled: false
+      limit: 100000
+      duration-in-seconds: 3600
+    authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
+      app1: /api,/v2/api-docs # recommended dev configuration
+  # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count'
+    allow-credentials: true
+    max-age: 1800
   security:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: NDYwZTcwMzg3ZTY1YjE0ZWE5NzYzZjIxYTA5ODU3YzYwYWVmMzg2NjI5MThmOGUxNjkxZmU1MmRjNGE2NzJmYTkxYzM4ZTEzNTRhMTRiMDhiZWZmOTU0MTRmM2NlMzE5NjcwNzQ0NDk0NTA0Mjk5NzVjYzEzNjNhNTIwMTU3ZGE=
+        base64-secret: Zjk0YTJiYzQzNjMxN2UyNjg5Y2Y0ZWRlNjQ3ZGJlOTEzMjA5YjYwNjY1ZWYyYjk3MjEzNTQzYmZiNzZjMjk5YmUzMTc0MGJkYWRjOWZjYzNjMWM2N2QxODY1Mjk5NDllODMwOGViMWVjMWVmODVlNTk4OGZlZjcwZWIwMTRjZjA=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

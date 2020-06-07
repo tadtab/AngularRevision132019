@@ -13,13 +13,6 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-eureka:
-  client:
-    enabled: false
-  instance:
-    appname: tadtab
-    instanceId: tadtab:${spring.application.instance-id:${random.value}}
-
 spring:
   application:
     name: tadtab
@@ -95,20 +88,21 @@ jhipster:
       host: localhost
       port: 5000
       queue-size: 512
+  mail:
+    from: test@localhost
+    base-url: http://127.0.0.1:8080
   security:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: NDYwZTcwMzg3ZTY1YjE0ZWE5NzYzZjIxYTA5ODU3YzYwYWVmMzg2NjI5MThmOGUxNjkxZmU1MmRjNGE2NzJmYTkxYzM4ZTEzNTRhMTRiMDhiZWZmOTU0MTRmM2NlMzE5NjcwNzQ0NDk0NTA0Mjk5NzVjYzEzNjNhNTIwMTU3ZGE=
+        base64-secret: Zjk0YTJiYzQzNjMxN2UyNjg5Y2Y0ZWRlNjQ3ZGJlOTEzMjA5YjYwNjY1ZWYyYjk3MjEzNTQzYmZiNzZjMjk5YmUzMTc0MGJkYWRjOWZjYzNjMWM2N2QxODY1Mjk5NDllODMwOGViMWVjMWVmODVlNTk4OGZlZjcwZWIwMTRjZjA=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
   metrics:
     logs: # Reports metrics in the logs
       enabled: true
       report-frequency: 60 # in seconds
-  cache:
-    redis:
-      server: ${redis.test.server}
+
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

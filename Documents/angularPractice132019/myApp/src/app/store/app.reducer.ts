@@ -1,15 +1,20 @@
 
 import * as fromAppAction from '../store/app.action';
+import {Plan} from '../common/plan';
 
 export interface State {
-    stateList: string[]
+    planList: Plan[],
+    editedItem: Plan,
+    isEditMode: boolean,
+    editedItemIndex: number
 }
 
 export const initialState: State = {
-    stateList: ["InitialSate"]
+    planList: [new Plan("123", 12, "12ax", new Date(), new Date())], 
+    isEditMode: false,
+    editedItem: null,
+    editedItemIndex: -1
 }
-
-
 
 export function appReducer(state = initialState, action: fromAppAction.inputActionTypes){
     switch(action.type){
@@ -22,9 +27,42 @@ export function appReducer(state = initialState, action: fromAppAction.inputActi
         case fromAppAction.ADD_INPUT:
             return { 
                 ...state,
-                stateList: [...state.stateList, action.payload]
+                planList: [...state.planList, action.payload]
             }
-            default:
+            break;
+        case fromAppAction.DELETE_INPUT: 
+            state.planList.splice(action.payload, 1);
+            return {
+                ...state
+            }
+            break;
+        case fromAppAction.START_EDIT:
+            const itemToBeEdited = state.planList[action.payload]; 
+            const itemIndexToBeEdited = action.payload;
+            return {
+                ...state, 
+                editedItem: itemToBeEdited,
+                editedItemIndex: itemIndexToBeEdited
+            }
+
+        case fromAppAction.EDIT_ITEM: 
+            const plan = state.planList[state.editedItemIndex];
+            const updatedPlan = {
+                ...plan, 
+                ...action.payload
+            }
+
+            const plans = [...state.planList];
+
+            plans[state.editedItemIndex] = updatedPlan;
+            
+            return {
+                ...state, 
+                planList: plans,
+                editedItem: null,
+                editedItemIndex: -1
+            }
+            default: 
                 return {
                     ...state
                 }
